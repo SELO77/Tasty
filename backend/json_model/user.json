@@ -1,0 +1,209 @@
+/*=======================*/
+/* User Case : Customer */
+{
+  "userID": "",
+  "userType": "CS00",
+  "userName": "SELO",
+  "deviceID": "",
+  "snsToken": "",
+  "firstInsertTime": "",
+  "lastUpdateTime": "",
+  "chats": [
+    {
+      "chatID": "",
+      "chatType": "",
+      "chatTitle": "",
+      "userGroup": "",
+      "firstInserTime": "",
+      "lastUpdateTime": "",
+      "messages": [
+        {
+          "messageID": "100001",
+          "messageType": "",
+          "messageContent": "안녕하세요. 라세리 빵집에 오신것을 환영합니다.",
+          "firstInsertTime": "",
+          "pictures": [
+            {
+              "pictureID": "",
+              "prictureURL": ""
+            }
+          ],
+        },
+      ]
+    }
+  ],
+  "meta": {
+    "areasInterest": [
+      {
+        "areaID": "",
+        "areaName": ""
+      }
+    ],
+    "categoriesInterest":[
+      {
+        "categoryID": "",
+        "categoryName": ""
+      }
+    ],
+    "storesInterest": [
+      {
+        "storeID": "",
+        "storeName": ""
+      }
+    ],
+  }
+}
+
+
+/*======================*/
+/* User Case : Seller */
+{
+  "userID": "",
+  "userType": "SE00",
+  "userName": "",
+  "deviceID": "",
+  "snsToken": "",
+  "firstInsertTime": "",
+  "lastUpdateTime": "",
+  "chats": [
+    {
+      "chatID": "",
+      "chatType": "",
+      "chatTitle": "",
+      "userGroup": "",
+      "firstInserTime": "",
+      "lastUpdateTime": "",
+      "messages": [
+        {
+          "messageID": "100001",
+          "messageType": "myself",
+          "messageContent": "안녕하세요. 라세리 빵집에 오신것을 환영합니다.",
+          "firstInsertTime": "",
+          "pictures": [
+            {
+              "pictureID": "",
+              "prictureURL": ""
+            }
+          ],
+        },
+      ]
+    }
+  ],
+  "meta" : {
+    "storeInfos": {
+      "storeID": "",
+      "storeName": "",
+      "categoryType": "",
+      "storeOwner": "",
+      "storeEmail": "",
+      "storePhone": "",
+      "storeIntro": "",
+      "coord": ["35.12312", "123.123123"],
+      "address": {
+        "addrNum": "",
+        "addrCountry": "",
+        "addrProvince": "",
+        "addrCity": "",
+        "addrArea1": "",
+        "addrArea2": "",
+        "addrArea3": "",
+      },
+      "pictures": [
+        {
+          "pictureID": "",
+          "prictureURL": "",
+          "firstInserTime": ""
+        }
+      ],
+      /* 상용 문구 */
+      "phrases": [
+        {
+          "phraseID": "",
+          "phraseContent": "",
+          "firstInserTime": "",
+          "lastUpdateTime": ""
+        }
+      ],
+    }
+  }
+}
+
+/*======================*/
+/* address */
+"address": {
+  "addrNum": "",
+  "addrCountry": "",
+  "addrProvince": "",
+  "addrCity": "",
+  "addrArea1": "",
+  "addrArea2": "",
+  "addrArea3": "",
+},
+
+/*======================*/
+/* chat */
+"chats": [
+  {
+    "chatID": "",
+    "chatType": "",
+    "chatTitle": "",
+    "userGroup": [], // chat방에 속해있는 users
+    "firstInserTime": "",
+    "lastUpdateTime": "",
+    "messages": [
+      {
+        "messageID": "100001",
+        "messageType": "",
+        "messageStatus": "",
+        "messageContent": "안녕하세요. 라세리 빵집에 오신것을 환영합니다.",
+        "firstInsertTime": "",
+        "pictures": [
+          {
+            "pictureID": "",
+            "prictureURL": ""
+          }
+        ],
+      },
+    ]
+  }
+],
+
+/*======================*/
+/* storeInfos */
+"storeInfos": {
+  "storeID": "",
+  "storeName": "",
+  "categoryType": [
+    "music", "coffee", "health"
+  ],
+  "storeOwner": "",
+  "storeEmail": "",
+  "storePhone": "",
+  "storeIntro": "",
+  "coord": ["35.12312", "123.123123"],
+  "address": {
+    "addrNum": "",
+    "addrCountry": "",
+    "addrProvince": "",
+    "addrCity": "",
+    "addrArea1": "",
+    "addrArea2": "",
+    "addrArea3": "",
+  },
+  "pictures": [
+    {
+      "pictureID": "",
+      "prictureURL": "",
+      "firstInserTime": ""
+    }
+  ],
+  /* 상용 문구 */
+  "phrases": [
+    {
+      "phraseID": "",
+      "phraseContent": "",
+      "firstInserTime": "",
+      "lastUpdateTime": ""
+    }
+  ],
+}

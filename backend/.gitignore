@@ -1,0 +1,5 @@
+node_modules/
+.svn/
+.git/
+ncp-debug.log
+npm-debug.log
