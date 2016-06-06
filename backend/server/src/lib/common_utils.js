@@ -1,18 +1,17 @@
 // class common_utils{
     
 // }
-function cc(content, type){
-    var content = String(content)
-    var type = type
+export function cc(content, type){
+    content = String(content)
     
-    var HEADER = '\033[95m'
-    var OKBLUE = '\033[94m'
-    var OKGREEN = '\033[92m'
-    var WARNING = '\033[93m'
-    var FAIL = '\033[91m'
-    var END = '\033[0m'
-    var BOLD = '\033[1m'
-    var UNDERLINE = '\033[4m'
+    let HEADER = '\033[95m'
+    let OKBLUE = '\033[94m'
+    let OKGREEN = '\033[92m'
+    let WARNING = '\033[93m'
+    let FAIL = '\033[91m'
+    let END = '\033[0m'
+    let BOLD = '\033[1m'
+    let UNDERLINE = '\033[4m'
      
     if(type == "warning"){
         console.log(WARNING+content+END)
@@ -29,4 +28,5 @@ function cc(content, type){
     }else if(type == undefined){
         console.log(content)
     }
+    
 }

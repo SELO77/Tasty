@@ -2,16 +2,16 @@ import { Meteor } from 'meteor/meteor'
 
 user = {
     "email": "selo77@naver.com",
-    "ㅜuser_name": "이새로찬",
+    "user_name": "이새로찬",
     "category": ["일식", "일식당"]
 }
 
  
 if (user) {
     console.log("==user",user)
-    Meteor.call('getMyList', user, function(error, result){
-        console.log("====== client getMyList");
-        if(error){
+    Meteor.call('login', user, function(error, result){
+        console.log("====== client login");
+        if(error) {
             console.log(error);
         } else {
             console.log(result);
