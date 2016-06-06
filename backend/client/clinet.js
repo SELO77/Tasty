@@ -1,23 +1,30 @@
-import { Meteor } from 'meteor/meteor'
+import {Meteor} from 'meteor/meteor'
 
-user = {
-    "email": "selo77@naver.com",
-    "user_name": "이새로찬",
-    "category": ["일식", "일식당"]
-}
+Test = {
+  login: function () {
+    console.log("login");
+    user = {
+      "email": "selo77@naver.com",
+      "user_name": "이새로찬",
+      "category": ["일식", "일식당", "중식"]
+    };
 
- 
-if (user) {
-    console.log("==user",user)
-    Meteor.call('login', user, function(error, result){
+    if (user) {
+      console.log("==user", user);
+      Meteor.call('login', user, function (error, result) {
         console.log("====== client login");
-        if(error) {
-            console.log(error);
+        if (error) {
+          console.log(error);
         } else {
-            console.log(result);
+          console.log(result);
         }
-    });
-}
+      });
+    }
+  },
+  join: function () {
+    console.log("join");
+  }
+};
 
 // [
 // '중식',                  
