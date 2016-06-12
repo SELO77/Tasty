@@ -65,24 +65,13 @@ export class UserJoinPage {
   }
   
   onClickSubmit() {
-    this.asteroid.call('createUser', this.selectedCategory)
+    this.asteroid.call('join', this.selectedCategory)
       .then(result => {
+        console.log('after join success', result);
         // list페이지로 이동 한다.
-        console.log(11111);
-        this.nav.push(UserListPage, {
-          userId : 'dlksjflksdjl'
-        });
-        
-        
-        // this.asteroid.call('getMyList', this.selectedCategory)
-        //   .then(result => {
-        //     this.stores = result.list;
-        //   })
-        //   .catch(error => {
-        //     console.log(error);
-        //   });
-        
-        
+        // this.nav.push(UserListPage, {
+        //   userId : 'dlksjflksdjl'
+        // });
       })
       .catch(error => {
         console.log(error);
