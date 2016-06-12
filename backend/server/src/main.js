@@ -7,12 +7,15 @@ import {auto_recommend} from './service/store/recommend';
 
 Meteor.methods({
     "join": function (user) {
+        cc(join.name, "okblue");
         return join(user);
     },
     "login": function (user) {
+        cc(login.name, "okblue");
         return login(user);
     },
     "auto_recommend": function (user) {
+        cc(auto_recommend.name, "okblue");
         return auto_recommend(user)
     }
     // "search": function(category) {
