@@ -1,0 +1,38 @@
+
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>라세리에 오신걸 환영합니다.</ion-title>
+</ion-navbar>
+
+<ion-content>
+
+  <ion-card>
+   <ion-card-header>
+      반갑습니다! 라세리입니다!<br />
+      회원님의 기본정보를 입력해주세요.
+    </ion-card-header>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-list-header>선호하는 음식종류</ion-list-header>
+        
+        <ion-item *ngFor="let food of foodCategory">
+          <ion-label>{{food}}</ion-label>
+          <ion-checkbox (click)="onClickFoodCategory(food)"></ion-checkbox>
+        </ion-item>
+        
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-row>
+  <ion-col width-100>
+    <button full (click)="onClickSubmit()">확인</button>
+  </ion-col>
+</ion-row>
