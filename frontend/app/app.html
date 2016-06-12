@@ -1,87 +1,17 @@
-<ion-toolbar primary>
-  <ion-title>라세리</ion-title>
+<ion-menu [content]="content">
 
-  <ion-buttons end>
-    <button royal>
-      <ion-icon name="settings"></ion-icon>
-    </button>
-  </ion-buttons>
-</ion-toolbar>
+  <ion-toolbar>
+    <ion-title>라세리</ion-title>
+  </ion-toolbar>
 
-<ion-content>
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
 
-  <ion-card>
-   <ion-card-header>
-      반갑습니다! 라세리입니다!<br />
-      회원님의 기본정보를 입력해주세요.
-    </ion-card-header>
-  </ion-card>
+</ion-menu>
 
-<!--
-  <ion-card>
-    <ion-card-content>
-      <ion-list>
-        <ion-item>
-          <ion-label fixed>이름</ion-label>
-          <ion-input type="text" value=""></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>성별</ion-label>
-          <ion-select [(ngModel)]="gender">
-            <ion-option value="F">여</ion-option>
-            <ion-option value="M">남</ion-option>
-          </ion-select>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-  -->
-  
-  <ion-card>
-    <ion-card-content>
-      <ion-list>
-        <ion-list-header>선호하는 음식종류</ion-list-header>
-        
-        <ion-item *ngFor="let food of foodCategory">
-          <ion-label>{{food}}</ion-label>
-          <ion-checkbox (click)="onClickFoodCategory(food)"></ion-checkbox>
-        </ion-item>
-        
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-  
-  <ion-card>
-    <ion-card-content>
-      <ion-list>
-        <ion-list-header>음식점</ion-list-header>
-        
-        <ion-item *ngFor="let store of stores">
-          <ion-label>{{store.name}}</ion-label>
-        </ion-item>
-        
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-
-</ion-content>
-
-<ion-row>
-  <ion-col width-100>
-    <button full (click)="onClickSubmit()">확인</button>
-  </ion-col>
-</ion-row>
-
-<!--
-<ion-toolbar position="bottom">
-
-  <ion-input type="text" placeholder="" style="border:1px solid #ccc; background-color:#fff;"></ion-input>
-
-  <ion-buttons end>
-    <button royal>
-      <ion-icon name="send" primary></ion-icon>
-    </button>
-  </ion-buttons>
-
-</ion-toolbar>
--->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
