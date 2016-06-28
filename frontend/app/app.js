@@ -1,9 +1,10 @@
 import {Component, ViewChild} from '@angular/core';
-import {ionicBootstrap, Platform} from 'ionic-angular';
+import {ionicBootstrap, Platform, Storage, LocalStorage} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 // import {GettingStartedPage} from './pages/getting-started/getting-started';
 import {UserJoinPage} from './pages/userJoin/userJoin';
 import {ListPage} from './pages/list/list';
+import {IntroPage} from './pages/intro/intro';
 
 
 @Component({
@@ -19,6 +20,7 @@ class MyApp {
 
   constructor(platform) {
     this.platform = platform;
+    this.local = new Storage(LocalStorage);
 
     this.initializeApp();
 
@@ -29,7 +31,15 @@ class MyApp {
       { title: 'List', component: ListPage }
     ];
 
-    this.rootPage = UserJoinPage;
+    this.local.get('didIntro').then((result) => {
+      console.log(result);
+      if(result===null) {
+        this.rootPage = IntroPage;
+      }else {
+        this.rootPage = UserJoinPage;
+      }
+      
+    });
   }
 
   initializeApp() {
