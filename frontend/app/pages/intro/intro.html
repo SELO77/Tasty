@@ -1,14 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Tasty</ion-title>
+  </ion-navbar>
+</ion-header>
+
 <ion-content>
+
   <ion-card>
-   <ion-card-header>
-      반갑습니다! 테이스티입니다!<br />
-      테이스티는 .........
-    </ion-card-header>
+    <ion-card-content>
+      당신의 취향을 간파한<br>
+      똑똑한 테이스티에 오신 것을<br>
+      환영해요!
+    </ion-card-content>
   </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Tasty Step 1.
+    </ion-card-header>
+    <ion-card-content>
+      당신에 대해 알려주세요.<br>
+      성별과 연령, 좋아하는 메뉴를 골라주세요.
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Tasty Step 2.
+    </ion-card-header>
+    <ion-card-content>
+      테이스티에서 당신의 취향에 딱 맞는 메뉴를 엄선하여 오늘의 메뉴를 추천해드려요.
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Tasty Step 3.
+    </ion-card-header>
+    <ion-card-content>
+      친구와 약속이 있을때, 연인과 데이트를 할때 테이스티를 불러주세요. 만남의 목적과 취향에 딱 맞는 추천 음식점을 알려드려요.
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
 
 <ion-row>
   <ion-col width-100>
-    <button full (click)="onClickGoUserJoin()">확인</button>
+    <button full (click)="login()">페이스북으로 시작하기</button>
   </ion-col>
 </ion-row>
