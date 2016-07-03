@@ -8,12 +8,12 @@ user = {
 
 Test = {
   login: function () {
-    console.log("login");
+    console.log("userLogin");
 
     if (user) {
       console.log("==user", user);
-      Meteor.call('login', user, function (error, result) {
-        console.log("====== client login");
+      Meteor.call('userLogin', user, function (error, result) {
+        console.log("====== client userLogin");
         if (error) {
           console.log(error);
         } else {
@@ -23,7 +23,7 @@ Test = {
     }
   },
   join: function () {
-    console.log("join");
+    console.log("userJoin");
   },
   auto_recommend: function() {
     console.log("auto_recommend");

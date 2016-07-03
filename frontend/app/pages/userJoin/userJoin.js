@@ -65,9 +65,9 @@ export class UserJoinPage {
   }
   
   onClickSubmit() {
-    this.asteroid.call('join', this.selectedCategory)
+    this.asteroid.call('userJoin', this.selectedCategory)
       .then(result => {
-        console.log('after join success', result);
+        console.log('after userJoin success', result);
         // list페이지로 이동 한다.
         // this.nav.push(UserListPage, {
         //   userId : 'dlksjflksdjl'
