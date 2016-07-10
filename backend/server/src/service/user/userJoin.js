@@ -5,8 +5,8 @@
 import {Meteor} from 'meteor/meteor';
 import {cc} from '../../lib/common_utils.js';
 
-export function join(user) {
-  let rs;
+export function userJoin(user) {
+  let result;
   try {
     db_result = Users.insert(user);
     cc("db_result", db_result);
@@ -15,5 +15,5 @@ export function join(user) {
     cc(e, 'fail');
   }
         
-  return rs
+  return result
 }

@@ -6,7 +6,7 @@ import {Meteor} from 'meteor/meteor';
 import {cc} from '../../lib/common_utils.js';
 
 
-export function login(user) {
+export function userLogin(user) {
     login_user = Users.findOne({"email": user.email});
     if (login_user) {
         result = login_user;
