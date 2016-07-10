@@ -12,6 +12,9 @@ export class IntroPage {
 
   constructor(nav){
     this.nav = nav;
+    // this.nav.setRoot(UserJoinPage);
+
+    // 아랫부분 테스트를 위해서 임시 주석
     this.local = new Storage(LocalStorage);
     this.loading = Loading.create({
       content: 'Authenticating...'
@@ -43,21 +46,22 @@ export class IntroPage {
   getProfile() {
     Facebook.api('/me?fields=id,name,email', ['email']).then(
       (response) => {
-        console.log('hehehe', response);
-
         this.fbid = response.id;
         this.userName = response.name;
         this.userEmail = response.email;
         // this.picture = response.picture.data.url;
 
         // API에 페북에서 받은 정보를 보낸다.
-        let alert = Alert.create({
-          title: '와우...',
-          subTitle: '축하합니다 ' + this.userName + '님. 회원님의 아이디는 ' + this.userEmail + ' 입니다.',
-          buttons: ['확인']
-        });
+        // TODO:: API통신부분은 나중에 한다. 지금은 skip
+        let userInfo = {
+          fbid: this.fbid,
+          name: this.userName,
+          email: this.userEmail
+        };
+        this.local.set('LoginUserInfo', JSON.stringify(userInfo));
+        this.local.set('didIntro', true);
         this.loading.dismiss();
-        this.nav.present(alert);
+        this.nav.setRoot(UserJoinPage);
       },
 
       (err) => {
@@ -73,9 +77,9 @@ export class IntroPage {
     );
   }
 
-  onClickGoUserJoin() {
-    // 로컬스토리지에 인트로페이지 방문여부를 저장
-    this.local.set('didIntro', true);
-    this.nav.setRoot(UserJoinPage);
-  }
+  // onClickGoUserJoin() {
+  //   // 로컬스토리지에 인트로페이지 방문여부를 저장
+  //   
+  //   this.nav.setRoot(UserJoinPage);
+  // }
 }

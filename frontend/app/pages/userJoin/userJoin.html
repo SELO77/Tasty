@@ -1,21 +1,15 @@
-
-<ion-navbar *navbar>
-  <button menuToggle>
-    <ion-icon name="menu"></ion-icon>
-  </button>
-  <ion-title>라세리에 오신걸 환영합니다.</ion-title>
-</ion-navbar>
+<ion-header>
+  <ion-navbar>
+    <ion-title>Tasty</ion-title>
+  </ion-navbar>
+</ion-header>
 
 <ion-content>
-
-  <ion-card>
-   <ion-card-header>
-      반갑습니다! 라세리입니다!<br />
-      회원님의 기본정보를 입력해주세요.
-    </ion-card-header>
+  <ion-card *ngFor="let contentItem of contentList">
+    <div [innerHTML]="contentItem"></div>
   </ion-card>
   
-  <ion-card>
+  <ion-card [hidden]="!step2">
     <ion-card-content>
       <ion-list>
         <ion-list-header>선호하는 음식종류</ion-list-header>
@@ -31,8 +25,18 @@
 
 </ion-content>
 
-<ion-row>
-  <ion-col width-100>
-    <button full (click)="onClickSubmit()">확인</button>
-  </ion-col>
-</ion-row>
+<ion-grid>
+  <ion-row [hidden]="!step1">
+    <ion-col width-50>
+      <button full (click)="clickGender('M')">남자</button>
+    </ion-col>
+    <ion-col width-50>
+      <button full (click)="clickGender('F')">여자</button>
+    </ion-col>
+  </ion-row>
+  <ion-row [hidden]="!step2">
+    <ion-col width-100>
+      <button full (click)="onClickSubmit()">모두 선택했어요.</button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

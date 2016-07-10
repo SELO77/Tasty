@@ -1,4 +1,4 @@
-import {Page, NavController} from 'ionic-angular';
+import {Page, NavController, Storage, LocalStorage, Alert, Loading} from 'ionic-angular';
 import {createClass} from "asteroid";
 import {UserListPage} from "../userList/userList";
 
@@ -14,41 +14,27 @@ export class UserJoinPage {
 
   constructor(nav){
     this.nav = nav;
-    // this.navParams = navParams;
-    this.gender = "F";
+    this.local = new Storage(LocalStorage);
+    this.loading = Loading.create({
+      content: 'Loading...'
+    });
+    this.userInfo = {
+      name: '김세영',
+      email: 'shirong.jin@outlook.com'
+    };
+    this.local.get('LoginUserInfo').then((result)=>{
+      this.userInfo = JSON.parse(result);
+    });
+    this.contentList = [
+      this.userInfo.name + '님~! 반가워요.<br>테이스트에게 당신에 대해 알려주세요.',
+      this.userInfo.name + '님의 성별을 선택해주세요.' 
+    ];
+    this.step1 = true;
+    this.step2 = false;
     
     this.foodCategory = [
-      '중식',                  
-      '한식',          
-      '육류,고기요리', 
-      '음식점',        
-      '치킨,닭강정',   
-      '족발,보쌈',     
-      '피자',          
-      '분식',          
-      '떡볶이',        
-      '닭갈비',        
-      '돼지고기구이',  
-      '카페,디저트',   
-      '베이커리',      
-      '인도음식',      
-      '양식',          
-      '일식',          
-      '일식당',        
-      '종합분식',      
-      '이탈리아음식',  
-      '스파게티,파스타전문',
-      '생선회',        
-      '양꼬치',        
-      '햄버거',        
-      '죽',            
-      '초밥,롤',       
-      '아귀찜,해물찜', 
-      '매운탕,해물탕', 
-      '스테이크,립',   
-      '패밀리레스토랑',
-      '카페',          
-      '감자탕'
+      '라면', '김치찌개', '햄버거', '파스타', '곱창볶음', '떡볶이', '순대볶음', '감자튀김', '피자', '프라이드치킨',
+      '양념치킨', '삼겹살', '갈비', '스시', '짬뽕'
     ];
   
     this.selectedCategory = [];
@@ -60,18 +46,34 @@ export class UserJoinPage {
     });
   }
 
+  clickGender(gender) {
+    this.contentList.push(gender==='M' ? '남자' : '여자');
+    this.userInfo.gender = gender;
+    this.step1 = false;
+    this.step2 = true;
+    console.log(this.userInfo);
+  }
+
   onClickFoodCategory(food) {
     this.selectedCategory.push(food);
   }
   
   onClickSubmit() {
-    this.asteroid.call('userJoin', this.selectedCategory)
+    this.userInfo.selectedCategory = this.selectedCategory;
+    this.asteroid.call('userJoin', this.userInfo)
       .then(result => {
         console.log('after userJoin success', result);
         // list페이지로 이동 한다.
         // this.nav.push(UserListPage, {
         //   userId : 'dlksjflksdjl'
         // });
+
+        let alert = Alert.create({
+          title: '축하합니다',
+          subTitle: '테이스티 회원가입이 완료되었습니다.',
+          buttons: ['확인']
+        });
+        this.nav.present(alert);
       })
       .catch(error => {
         console.log(error);
