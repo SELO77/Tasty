@@ -1,5 +1,5 @@
 import {Meteor} from 'meteor/meteor';
-import {cc} from './lib/common_utils'
+import {cc} from './lib/commonUtils'
 import {userJoin} from './service/user/userJoin';
 import {userLogin} from './service/user/userLogin';
 import {userUpdate} from './service/user/userUpdate';

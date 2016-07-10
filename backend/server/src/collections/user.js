@@ -1,4 +1,4 @@
-import { cc } from '../lib/common_utils';
+import { cc } from '../lib/commonUtils';
 try {
     Users = new Mongo.Collection('users');
     

@@ -1,6 +1,4 @@
-// class common_utils{
-    
-// }
+
 export function cc(content, type){
     content = String(content);
     

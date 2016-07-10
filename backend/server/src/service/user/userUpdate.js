@@ -3,7 +3,7 @@
  */
 
 import {Meteor} from 'meteor/meteor';
-import {cc} from '../../lib/common_utils.js';
+import {cc} from '../../lib/commonUtils.js';
 
 
 export function userUpdate(user) {

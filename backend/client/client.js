@@ -24,6 +24,17 @@ Test = {
   },
   join: function () {
     console.log("userJoin");
+    if (user) {
+      console.log("==user", user);
+      Meteor.call('userJoin', user, function (error, result) {
+        console.log("====== client userJoin");
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(result);
+        }
+      });
+    }
   },
   auto_recommend: function() {
     console.log("auto_recommend");

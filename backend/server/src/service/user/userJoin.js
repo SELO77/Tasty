@@ -3,13 +3,12 @@
  */
 
 import {Meteor} from 'meteor/meteor';
-import {cc} from '../../lib/common_utils.js';
+import {cc} from '../../lib/commonUtils.js';
 
 export function userJoin(user) {
-  let result;
   try {
     db_result = Users.insert(user);
-    cc("db_result", db_result);
+    cc("db_result:", db_result);
   }
   catch (e) {
     cc(e, 'fail');
